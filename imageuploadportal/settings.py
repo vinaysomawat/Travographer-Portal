@@ -117,9 +117,9 @@ MEDIA_URL = '/media/'
 
 ##AWS CREDIENTIALS
 
-AWS_ACCESS_KEY_ID = 'AKIAT2VXFD6F7UFTNXRJ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'travographerportal'
+AWS_ACCESS_KEY_ID = '*********************'
+AWS_SECRET_ACCESS_KEY = '******************************'
+AWS_STORAGE_BUCKET_NAME = '****************'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
