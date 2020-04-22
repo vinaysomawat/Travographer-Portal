@@ -12,22 +12,13 @@ body {
   margin: 40px auto;
 }
 
+h2{
+  font-family: 'Times New Roman', Times, serif;
+}
+
 form {
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ff9900;
   width: 350px;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-table td,
-table th {
-  border: 1px solid #eceeef;
-  padding: 5px 8px;
-  text-align: left;
-}
-table thead {
-  border-bottom: 2px solid #eceeef;
 }

@@ -10,15 +10,14 @@ class Home(TemplateView):
 
 
 def upload(request):
-    
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         upload = Image(Imagefile=uploaded_file)
         upload.save()
-        # fs = FileSystemStorage()
-        # name = fs.save(uploaded_file.name, uploaded_file)
-        # context['url'] = fs.url(name)
-    return render(request, 'upload.html', {})
+        image_url = upload.Imagefile.url
+    return render(request, 'upload.html', {
+        'image_url':image_url
+    })
 
     return render(request, 'upload.html')
 

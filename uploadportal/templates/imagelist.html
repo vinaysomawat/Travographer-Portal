@@ -1,0 +1,19 @@
+{% load static %}
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Uploaded at</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if image_url %}
+        <tr>
+          <td><a href="{{ image_url }}" target="_blank">{{ image_url }}</a></td>
+          <!-- <td>{{ document.uploaded_at }}</td>
+          <td>{{ document.Imagefile.size|filesizeformat }}</td> -->
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
