@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-   <h2>Upload</h2>
+  <h2>Upload</h2>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="document">
@@ -10,5 +10,10 @@
   {% if url %}
     <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
   {% endif %}
- 
 {% endblock %}
+
+<!-- {% for image in images%}
+        {% if image.Imagefile %}
+            <p>Uploaded files: <a href="{{ image.Imagefile.url }}">{{ image.Imagefile.url }}</a></p>
+        {% endif %}
+    {% endfor %} -->

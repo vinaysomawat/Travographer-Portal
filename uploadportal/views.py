@@ -1,17 +1,29 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
+from .models import Image
 
-# Create your views here.
 
 class Home(TemplateView):
-    template_name = 'home.html'
+    TemplateView = 'home.html'
+
+
 
 def upload(request):
-    context = {}
+    
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-    return render(request, 'upload.html', context)
+        upload = Image(Imagefile=uploaded_file)
+        upload.save()
+        # fs = FileSystemStorage()
+        # name = fs.save(uploaded_file.name, uploaded_file)
+        # context['url'] = fs.url(name)
+    return render(request, 'upload.html', {})
+
+    return render(request, 'upload.html')
+
+def image_list(request):
+    images = Image.objects.all()
+    return render(request, 'upload.html', {
+        'images': images
+    })
