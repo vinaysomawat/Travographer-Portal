@@ -15,10 +15,10 @@ def upload(request):
         upload = Image(Imagefile=uploaded_file)
         upload.save()
         image_url = upload.Imagefile.url
-    return render(request, 'upload.html', {
-        'image_url':image_url
-    })
-
+        return render(request, 'upload.html', {
+            'image_url':image_url
+        })
+    
     return render(request, 'upload.html')
 
 def image_list(request):
