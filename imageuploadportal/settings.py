@@ -26,7 +26,7 @@ SECRET_KEY = ')zo&p@7yq_wncfs!$80tr$=zuz!@7a(a825=-f9aei3!6x=z!('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','imageuploadportal.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','imageuploadportal.herokuapp.com']
 
 
 # Application definition
@@ -129,7 +129,10 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 DEFAULT_FILE_STORAGE = 'imageuploadportal.storage_backends.MediaStorage'
@@ -137,3 +140,7 @@ DEFAULT_FILE_STORAGE = 'imageuploadportal.storage_backends.MediaStorage'
 
 #heroku settings
 # django_heroku.settings(locals())
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
